@@ -7,11 +7,12 @@ public class Hangman {
 	public String[][] hangMatrix;
 	public int lineNumbers;
 	public int columnNumbers;	
+	
 	public Hangman(String input) {
 		this.input = input;
 		this.output = new String();
-		this.lineNumbers = 4;
-		this.columnNumbers = columnNumbers;
+		this.lineNumbers = 8;
+		this.columnNumbers = 50;
 		this.hangMatrix = new String[this.lineNumbers][this.columnNumbers];
 	}
 
@@ -37,28 +38,46 @@ public class Hangman {
 		System.out.println("Also, keep in mind that I'm Case Sensitive! :P");
 	}
 	
+	public void supportForHanging() {
+		hangMatrix[1][columnNumbers - 2] = "|";
+		hangMatrix[0][columnNumbers - 2] = "_";
+		hangMatrix[0][columnNumbers - 3] = "_";
+		hangMatrix[0][columnNumbers - 4] = "_";
+		hangMatrix[0][columnNumbers - 5] = "_";
+		hangMatrix[1][columnNumbers - 6] = "|";
+		hangMatrix[2][columnNumbers - 6] = "|";
+		hangMatrix[3][columnNumbers - 6] = "|";
+		hangMatrix[4][columnNumbers - 6] = "|";
+		hangMatrix[5][columnNumbers - 6] = "|";
+		hangMatrix[6][columnNumbers - 6] = "|";
+		hangMatrix[6][columnNumbers - 5] = "_";
+		hangMatrix[6][columnNumbers - 4] = "_";
+		hangMatrix[6][columnNumbers - 7] = "_";
+		hangMatrix[6][columnNumbers - 8] = "_";
+	}
+	
 	public void hangedHead() {
-		hangMatrix[0][columnNumbers - 2] = "O";
+		hangMatrix[2][columnNumbers - 2] = "O";
 	}
 
 	public void hangedThorax() {
-		hangMatrix[1][columnNumbers - 2] = "|";
-		hangMatrix[2][columnNumbers - 2] = "|";
+		hangMatrix[3][columnNumbers - 2] = "|";
+		hangMatrix[4][columnNumbers - 2] = "|";
 	}
 
 	public void hangedLeftArm() {
-		hangMatrix[1][columnNumbers - 3] = "/";
-	}
-	
-	public void hangedRightArm() {
-		hangMatrix[1][columnNumbers - 1] = "\\";
-	}
-	
-	public void hangedLeftFoot() {
 		hangMatrix[3][columnNumbers - 3] = "/";
 	}
 	
-	public void hangedRightFoot() {
+	public void hangedRightArm() {
 		hangMatrix[3][columnNumbers - 1] = "\\";
+	}
+	
+	public void hangedLeftFoot() {
+		hangMatrix[5][columnNumbers - 3] = "/";
+	}
+	
+	public void hangedRightFoot() {
+		hangMatrix[5][columnNumbers - 1] = "\\";
 	}
 }
